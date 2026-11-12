@@ -2,6 +2,8 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import QRCode from 'react-qr-code'
 
+export const dynamic = 'force-dynamic'
+
 export default async function PassPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()

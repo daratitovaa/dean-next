@@ -3,6 +3,7 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { createRequest, createTransferRequest, createITORequest } from './actions'
 import { AiAssistant } from '@/components/ai-assistant'
+export const dynamic = 'force-dynamic'
 
 const STATUS_LABELS: Record<string, string> = {
   queued: 'В очереди',

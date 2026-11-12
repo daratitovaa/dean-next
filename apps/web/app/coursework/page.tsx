@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { selectTopic, cancelChoice } from './actions'
 import { TopicSelector } from './TopicSelector'
 
+export const dynamic = 'force-dynamic'
+
 export default async function CourseworkPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()

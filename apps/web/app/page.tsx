@@ -5,6 +5,7 @@ import { AiAssistant } from '@/components/ai-assistant'
 import { StressRelief } from '@/components/stress-relief'
 import { GamificationProfile } from '@/components/gamification-profile'
 
+export const dynamic = 'force-dynamic'
 export default async function HomePage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
