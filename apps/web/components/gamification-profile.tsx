@@ -7,9 +7,10 @@ interface GamificationProps {
 }
 
 export function GamificationProfile({ xp, level, achievements }: GamificationProps) {
-  // Логика прогресса: например, каждый уровень требует level * 500 XP
-  const xpForNextLevel = level * 500
+  // ИСПРАВЛЕННАЯ ЛОГИКА
+  const xpForNextLevel = (level + 1) * 500
   const currentLevelXp = xp % 500
+  const xpToNext = xpForNextLevel - xp
   const progressPercent = Math.min((currentLevelXp / 500) * 100, 100)
 
   return (
@@ -29,7 +30,7 @@ export function GamificationProfile({ xp, level, achievements }: GamificationPro
         </div>
         <div className="text-right">
           <p className="text-xs text-zinc-500">До {level + 1} уровня</p>
-          <p className="text-sm font-medium">{xpForNextLevel - xp} XP</p>
+          <p className="text-sm font-medium">{xpToNext > 0 ? xpToNext : 0} XP</p>
         </div>
       </div>
 
