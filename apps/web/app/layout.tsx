@@ -1,29 +1,24 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import type { Metadata } from 'next'
+import './globals.css'
+import { BottomNav } from '@/components/bottom-nav' // Добавлен импорт
 
-import "@workspace/ui/globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@workspace/ui/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+export const metadata: Metadata = {
+  title: 'Деканат.Next — концепт',
+  description: 'Концепт личного кабинета студента для конкурса. Не официальный сервис вуза.',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
-    >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+    <html lang="ru">
+      <body className="bg-zinc-50 text-zinc-900 antialiased">
+        <main className="pb-16 sm:pb-0">
+          {children}
+        </main>
+        <BottomNav />
       </body>
     </html>
   )
