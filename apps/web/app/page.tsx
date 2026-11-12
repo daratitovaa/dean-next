@@ -6,6 +6,7 @@ import { StressRelief } from '@/components/stress-relief'
 import { GamificationProfile } from '@/components/gamification-profile'
 
 export const dynamic = 'force-dynamic'
+
 export default async function HomePage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -44,6 +45,25 @@ export default async function HomePage() {
         <form action="/auth/signout" method="post">
           <button className="text-sm text-red-500 px-2 py-1">Выйти</button>
         </form>
+      </div>
+
+      {/* МЕНЮ ДЛЯ ДЕСКТОПА (СКРЫТО НА МОБИЛКАХ) */}
+      <div className="hidden sm:flex gap-2 overflow-x-auto pb-2">
+        <Link href="/grades" className="px-4 py-2 bg-white border rounded-lg text-sm font-medium hover:bg-zinc-50 transition-colors">
+          📊 Оценки
+        </Link>
+        <Link href="/requests" className="px-4 py-2 bg-white border rounded-lg text-sm font-medium hover:bg-zinc-50 transition-colors">
+          📄 Заявки
+        </Link>
+        <Link href="/notifications" className="px-4 py-2 bg-white border rounded-lg text-sm font-medium hover:bg-zinc-50 transition-colors">
+          🔔 Уведомления
+        </Link>
+        <Link href="/coursework" className="px-4 py-2 bg-white border rounded-lg text-sm font-medium hover:bg-zinc-50 transition-colors">
+          🎓 Курсовая
+        </Link>
+        <Link href="/pass" className="px-4 py-2 bg-white border rounded-lg text-sm font-medium hover:bg-zinc-50 transition-colors">
+          🪪 Пропуск
+        </Link>
       </div>
 
       {/* РАСПИСАНИЕ С КНОПКОЙ ЭКСПОРТА */}
