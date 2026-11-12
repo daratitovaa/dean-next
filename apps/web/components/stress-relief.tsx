@@ -17,7 +17,7 @@ export function StressRelief() {
 
   useEffect(() => {
     if (open) {
-      setQuote(QUOTES[Math.floor(Math.random() * QUOTES.length)])
+      setQuote(QUOTES[Math.floor(Math.random() * QUOTES.length)] || "Отдых — это часть учебы.")
       setStep(0)
       const interval = setInterval(() => {
         setStep((s) => (s + 1) % 4)
