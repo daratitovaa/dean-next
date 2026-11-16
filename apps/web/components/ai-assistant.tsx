@@ -46,7 +46,8 @@ export function AiAssistant() {
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`text-sm p-2 rounded-lg max-w-[90%] ${
+                // ДОБАВЛЕН break-words
+                className={`text-sm p-2 rounded-lg max-w-[90%] break-words ${
                   m.role === 'user' ? 'bg-zinc-900 text-white ml-auto' : 'bg-zinc-100'
                 }`}
               >
