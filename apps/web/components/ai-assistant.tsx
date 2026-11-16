@@ -34,8 +34,8 @@ export function AiAssistant() {
   return (
     <>
       {open && (
-        // ГЛАВНЫЙ КОНТЕЙНЕР: добавлен overflow-hidden и flex flex-col
-        <div className="fixed inset-x-4 bottom-20 sm:inset-auto sm:right-6 sm:bottom-24 sm:w-96 bg-white border rounded-2xl shadow-xl z-50 flex flex-col max-h-[70vh] overflow-hidden">
+        {/* ИЗМЕНЕН ГЛАВНЫЙ КОНТЕЙНЕР: left-4 right-4 вместо inset-x-4 */}
+        <div className="fixed left-4 right-4 bottom-20 sm:left-auto sm:right-6 sm:bottom-24 sm:w-96 bg-white border rounded-2xl shadow-xl z-50 flex flex-col max-h-[70vh] overflow-hidden">
           
           <div className="flex items-center justify-between p-3 border-b">
             <p className="text-sm font-medium">ИИ-ассистент</p>
@@ -59,14 +59,14 @@ export function AiAssistant() {
             {loading && <p className="text-xs text-zinc-400">Печатает...</p>}
           </div>
           
-          {/* ПОЛЕ ВВОДА: все нужные классы на месте */}
           <div className="p-2 border-t flex gap-2 w-full overflow-hidden">
             <input 
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && send()}
               placeholder="Вопрос..."
-              className="flex-1 min-w-0 w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-900" 
+              {/* ИЗМЕНЕН ШРИФТ: text-sm -> text-base */}
+              className="flex-1 min-w-0 w-full px-3 py-2 border rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-zinc-900" 
             />
             <button 
               onClick={send}
