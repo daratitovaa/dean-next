@@ -46,7 +46,6 @@ export function AiAssistant() {
             {messages.map((m, i) => (
               <div
                 key={i}
-                // ДОБАВЛЕН break-words
                 className={`text-sm p-2 rounded-lg max-w-[90%] break-words ${
                   m.role === 'user' ? 'bg-zinc-900 text-white ml-auto' : 'bg-zinc-100'
                 }`}
@@ -56,18 +55,20 @@ export function AiAssistant() {
             ))}
             {loading && <p className="text-xs text-zinc-400">Печатает...</p>}
           </div>
-          <div className="p-2 border-t flex gap-2">
+          
+          {/* ИСПРАВЛЕННЫЙ БЛОК ВВОДА */}
+          <div className="p-2 border-t flex gap-2 overflow-hidden">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && send()}
               placeholder="Вопрос..."
-              className="flex-1 px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-900"
+              className="flex-1 min-w-0 w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-zinc-900"
             />
             <button
               onClick={send}
               disabled={loading}
-              className="px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm disabled:opacity-50"
+              className="px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm disabled:opacity-50 shrink-0"
             >
               →
             </button>

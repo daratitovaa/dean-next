@@ -90,11 +90,21 @@ export default async function RequestsPage() {
           <div className="grid grid-cols-2 gap-3">
             <div className="min-w-0">
               <label className="text-xs text-zinc-500 mb-1 block">Желаемая дата</label>
-              <input type="date" name="date" required className="w-full px-2 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-900 outline-none" />
+              <input 
+                type="date" 
+                name="date" 
+                required 
+                className="w-full min-w-0 px-2 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-900 outline-none appearance-none" 
+              />
             </div>
             <div className="min-w-0">
               <label className="text-xs text-zinc-500 mb-1 block">Время</label>
-              <input type="time" name="time" required className="w-full px-2 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-900 outline-none" />
+              <input 
+                type="time" 
+                name="time" 
+                required 
+                className="w-full min-w-0 px-2 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-zinc-900 outline-none appearance-none" 
+              />
             </div>
           </div>
           
